@@ -1,0 +1,13 @@
+/.vs
+/.vsconfig
+/Assembly-CSharp.csproj
+/GameCar.sln
+/Library
+/Logs
+/obj
+/spine-unity-editor.csproj
+/spine-unity-examples-editor.csproj
+/spine-unity-examples.csproj
+/spine-unity.csproj
+/Temp
+/UserSettings

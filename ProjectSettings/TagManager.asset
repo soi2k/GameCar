@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Light
+  - TextChooseCar
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Car1
+  - Car2
+  - Car3
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3660511951
+    locked: 0
+  - name: Moutain
+    uniqueID: 531381747
+    locked: 0
+  - name: Road
+    uniqueID: 3447237015
+    locked: 0
+  - name: Tree
+    uniqueID: 1533224263
+    locked: 0
+  - name: Audiences
+    uniqueID: 1207168289
+    locked: 0
+  - name: Car
+    uniqueID: 797220383
+    locked: 0
