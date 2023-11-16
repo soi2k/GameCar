@@ -13,7 +13,8 @@ public class MusicManager : Singleton<MusicManager>
     public void PlayMusic(MusicType musicType)
     {
         var audio = Resources.Load<AudioClip>(path: $"Music/{musicType.ToString()}");
-        audioSource.PlayOneShot(audio);
+        audioSource.clip = audio;
+        audioSource.Play();
     }
     public void StopMusic()
     {

@@ -18,7 +18,22 @@ public abstract class Subject : MonoBehaviour
     {
         observers.ForEach((observer) =>
         {
-            observer.OnNotify();
+            observer.OnNotifyNormal();
         });
     }
+    protected void NotifyTrigger()
+    {
+        observers.ForEach((observer) =>
+        {
+            observer.OnNotifyTrigger();
+        });
+    }
+    protected void NotifyAddforce()
+    {
+        observers.ForEach((observer) =>
+        {
+            observer.OnNotifyAddForce();
+        });
+    }
+
 }

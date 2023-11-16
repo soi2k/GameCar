@@ -10,6 +10,8 @@ public class AutoManager1 : Singleton<AutoManager1>
     public GameObject autoCar { get; private set; }
     private Vector3 startPst;
     private Vector3 targetPst;
+    private Vector3 forWardPst;
+    private Vector3 backWardPst;
     private float moveTime = 1.75f; 
 
 
@@ -19,7 +21,7 @@ public class AutoManager1 : Singleton<AutoManager1>
     {
         car = GetComponent<AutoCar>();
         startPst = transform.position;
-        targetPst = new Vector3(17, transform.position.y, transform.position.z);
+        targetPst = new Vector3(19, transform.position.y, transform.position.z);
 
         typeCar = StorageTypeCarManager.Instance.lstCarAuto[0];
         InitPlayCar();
@@ -38,5 +40,16 @@ public class AutoManager1 : Singleton<AutoManager1>
     public void ChangeLane(float newPositionY)
     {
         car.Move(0.2f, transform.position, new Vector3(transform.position.x, newPositionY, transform.position.z));
+    }
+
+    public void MoveForWard()
+    {
+        forWardPst = new Vector3(19, transform.position.y, transform.position.z);
+        car.Move(3, transform.position, forWardPst);
+    }
+    public void MoveBackWard()
+    {
+        backWardPst = new Vector3(-19, transform.position.y, transform.position.z);
+        car.Move(3, transform.position, backWardPst);
     }
 }

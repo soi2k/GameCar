@@ -13,8 +13,18 @@ public class CellWordManager : Singleton<CellWordManager>,IObserver
         setActiveCell = GetComponent<ISetActiveCell>();
         subject.AddObserver(this);
     }
-    public void OnNotify()
+    public void OnNotifyNormal()
     {
         setActiveCell.SetActiveCell();
     }
+    public void OnNotifyTrigger()
+    {
+        Debug.Log("Trigger");
+    }
+
+    public void OnNotifyAddForce()
+    {
+        Debug.Log("Trigger");
+    }
 }
+

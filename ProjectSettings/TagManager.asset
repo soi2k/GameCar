@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Light
   - TextChooseCar
+  - CellWord
+  - Road
+  - m
+  - a
+  - t
+  - Border
+  - Addforce
+  - SideRoad
   layers:
   - Default
   - TransparentFX

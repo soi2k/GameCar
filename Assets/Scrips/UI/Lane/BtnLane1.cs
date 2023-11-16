@@ -8,5 +8,6 @@ public class BtnLane1 : BaseButton
     protected override void OnClick()
     {
         PlayerManager.Instance.ChangeLane(Lane1);
+        MapManager.Instance.ChooseRightLane(Lane1.y);
     }
 }

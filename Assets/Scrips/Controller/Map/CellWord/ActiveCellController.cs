@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class ActiveCellControllerLoad : MonoBehaviour, ISetActiveCell
+public class ActiveCellController : MonoBehaviour, ISetActiveCell
 {
     SpriteRenderer spriteRenderer;
     private void Awake()
@@ -13,3 +13,4 @@ public class ActiveCellControllerLoad : MonoBehaviour, ISetActiveCell
         spriteRenderer.enabled = true;
     }
 }
+

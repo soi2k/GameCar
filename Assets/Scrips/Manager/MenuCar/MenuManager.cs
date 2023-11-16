@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
 public class MenuManager : Singleton<MenuManager>
 {
     [SerializeField] public List<GameObject> lstCar;

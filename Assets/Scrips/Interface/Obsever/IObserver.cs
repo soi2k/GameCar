@@ -1,4 +1,6 @@
 ﻿public interface IObserver
 {
-    void OnNotify();
+    void OnNotifyNormal();
+    void OnNotifyTrigger();
+    void OnNotifyAddForce();
 }

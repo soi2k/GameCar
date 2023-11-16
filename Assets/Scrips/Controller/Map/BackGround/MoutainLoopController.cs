@@ -12,8 +12,18 @@ public class MoutainLoop : LoopMap,IObserver
         subject.AddObserver(this);
     }
 
-    public void OnNotify()
+    public void OnNotifyNormal()
     {
         speed = 3;
+    }
+
+    public void OnNotifyTrigger()
+    {
+        speed = 6;
+    }
+
+    public void OnNotifyAddForce()
+    {
+        speed = 10.5f;
     }
 }
