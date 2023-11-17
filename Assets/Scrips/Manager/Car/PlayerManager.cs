@@ -34,6 +34,7 @@ public class PlayerManager : Subject
         car = GetComponent<PlayCar>();
         startCownDown = GetComponent<IStartCownDown>();
         typeCar = StorageTypeCarManager.Instance.IDCar;
+        startPosition = transform.position;
         InitPlayCar();
         StartCoroutine(StartGame());
         
@@ -63,7 +64,7 @@ public class PlayerManager : Subject
         AutoManager1.Instance.StartPlay();
         yield return new WaitForSeconds(0.25f);
         AutoManager2.Instance.StartPlay();
-        NotifyNormal();
+        Notify(7f);
         car.SetState(typeCar, 1, playcar);
         yield return new WaitForSeconds(2.5f);
         SoundManager.Instance.PlaySound(SoundType.Guiding);
@@ -80,15 +81,17 @@ public class PlayerManager : Subject
         float positionY = this.transform.position.y;
 
         if (Mathf.Abs(positionY - newPosition.y) == 4)
-        {
+        {   
             moveTime = 0.35f;
             car.Move(moveTime, transform.position, newPosition);
+            startPosition = newPosition;
         }
         else if (Mathf.Abs(positionY - newPosition.y) == 2)
         {
             StartCoroutine(FirstGuiding());
             moveTime = 0.25f;
             car.Move(moveTime, transform.position, newPosition);
+            startPosition = newPosition;
         }
         else return;
         if(newPosition.y == Auto1PositionY)
@@ -114,54 +117,61 @@ public class PlayerManager : Subject
         }
     }
 
-    public void DisableChangeLane()
+    public void SetActiveChangeLane(bool blChangeLane)
     {   
-        blChangeLane = false;
+        this.blChangeLane = blChangeLane;
     }
 
-    private void OnTriggerEnter2D(Collider2D alphabet)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (alphabet.tag != "Addforce")
+        if (collision.tag != "Addforce")
         {
             MapManager.Instance.TriggerAlphabet();
             StartCoroutine(StateTrigger());
         }
         else
         {
-            Destroy(alphabet);
+            Destroy(collision.gameObject);
             StartCoroutine(Addforce());
         }
     }
     private IEnumerator Addforce()
     {
+        blChangeLane = false;
         SoundManager.Instance.PlaySound(SoundType.EnergyTouch);
         yield return new WaitForSeconds(1.5f);
         car.SetState(typeCar, 4, playcar);
         yield return new WaitForSeconds(0.3f);
         car.SetState(typeCar, 5, playcar);
         SoundManager.Instance.PlaySound(SoundType.EnergyPowerUp);
-        car.Move(4, transform.position, new Vector3(22, transform.position.y, transform.position.z));
-
+        car.Move(3, transform.position, new Vector3(4, transform.position.y, transform.position.z));
+        Notify(24.5f);
+        MapManager.Instance.EndingGame();
     }
-
+    
     private IEnumerator StateTrigger()
     {
         blChangeLane = false;
-        startPosition = transform.position;
         yield return new WaitForSeconds(1f);
         car.SetState(typeCar, 2, playcar);
         yield return new WaitForSeconds(0.75f);
         car.Move(3, transform.position, new Vector3(0, startPosition.y, startPosition.z));
-        NotifyTrigger();
+        Notify(14f);
         yield return new WaitForSeconds(3);
         car.SetState(typeCar, 3, playcar);
         yield return new WaitForSeconds(1.5f);
         car.SetState(typeCar, 1, playcar);
         car.Move(2, transform.position, startPosition);
         yield return new WaitForSeconds(2);
-        NotifyNormal();
+        Notify(7f);
         blChangeLane = true;
         yield return new WaitForSeconds(1.5f);
         MapManager.Instance.GenerateAlphabet();
     }   
+
+    public void EndingGame()
+    {
+        Notify(0);
+        car.Move(0.5f, transform.position, new Vector3(22, transform.position.y, 0));
+    }
 }

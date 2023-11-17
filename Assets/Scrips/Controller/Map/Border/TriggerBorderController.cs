@@ -10,7 +10,7 @@ public class TriggerBorderController : MonoBehaviour
         }
         else
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
         }
     }
 }

@@ -11,17 +11,8 @@ public class RoadLoopController : LoopMap,IObserver
         subject = FindObjectOfType<PlayerManager>();
         subject.AddObserver(this);
     }
-    public void OnNotifyNormal()
+    public void OnNotify(float value)
     {
-        speed = 7;
-    }
-    public void OnNotifyTrigger()
-    {
-        speed = 14;
-    }
-
-    public void OnNotifyAddForce()
-    {
-        speed = 24.5f;
+        speed = value;
     }
 }

@@ -52,4 +52,9 @@ public class AutoManager1 : Singleton<AutoManager1>
         backWardPst = new Vector3(-19, transform.position.y, transform.position.z);
         car.Move(3, transform.position, backWardPst);
     }
+    public void MoveDestination()
+    {
+        forWardPst = new Vector3(19, transform.position.y, transform.position.z);
+        car.Move(1.7f, transform.position, forWardPst);
+    }
 }

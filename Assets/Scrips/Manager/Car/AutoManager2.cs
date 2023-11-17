@@ -50,7 +50,12 @@ public class AutoManager2 : Singleton<AutoManager2>
     }
     public void MoveBackWard()
     {
-        backWardPst = new Vector3(-19, transform.position.y, transform.position.z);
+        backWardPst = new Vector3(-22, transform.position.y, transform.position.z);
         car.Move(3, transform.position, backWardPst);
+    }
+    public void MoveDestination()
+    {
+        forWardPst = new Vector3(19, transform.position.y, transform.position.z);
+        car.Move(1.5f, transform.position, forWardPst);
     }
 }

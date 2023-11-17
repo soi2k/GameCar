@@ -12,18 +12,8 @@ public class SideRoadLoopController : LoopMap,IObserver
         subject.AddObserver(this);
     }
 
-    public void OnNotifyNormal()
+    public void OnNotify(float value)
     {
-        speed = 4;
+        speed = 0.6f * value;
     }
-    public void OnNotifyTrigger()
-    {
-        speed = 8;
-    }
-
-    public void OnNotifyAddForce()
-    {
-        speed = 14;
-    }
-
 }

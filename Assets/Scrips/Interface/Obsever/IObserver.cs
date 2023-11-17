@@ -1,6 +1,4 @@
 ﻿public interface IObserver
 {
-    void OnNotifyNormal();
-    void OnNotifyTrigger();
-    void OnNotifyAddForce();
+    void OnNotify(float value);
 }
