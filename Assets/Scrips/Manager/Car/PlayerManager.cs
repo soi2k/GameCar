@@ -17,6 +17,7 @@ public class PlayerManager : Subject
     string typeCar;
 
     private bool blChangeLane = false;
+    private bool triggerAddforce = false;
 
     private void Awake()
     {
@@ -53,13 +54,12 @@ public class PlayerManager : Subject
         SoundManager.Instance.PlaySound(SoundType.Intro);
         yield return new WaitForSeconds(5);
         SoundManager.Instance.StopSound();
-        startCownDown.StartCowntDown();
         SoundManager.Instance.PlaySound(SoundType.CountDown);
+        startCownDown.StartCowntDown();
         yield return new WaitForSeconds(4);
-        SoundManager.Instance.StopSound();
         MusicManager.Instance.PlayMusic(MusicType.PlayGame);
 
-        SideRoadManager.Instance.StartGo();
+        SideRoadManager.Instance.StartGo(); 
         yield return new WaitForSeconds(0.25f);
         AutoManager1.Instance.StartPlay();
         yield return new WaitForSeconds(0.25f);
@@ -130,9 +130,10 @@ public class PlayerManager : Subject
             StartCoroutine(StateTrigger());
         }
         else
-        {
+        {   if (triggerAddforce) return;
             Destroy(collision.gameObject);
             StartCoroutine(Addforce());
+            triggerAddforce = true;
         }
     }
     private IEnumerator Addforce()

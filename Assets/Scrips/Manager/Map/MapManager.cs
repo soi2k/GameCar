@@ -174,7 +174,7 @@ public class MapManager : Subject
         AutoManager2.Instance.MoveDestination();
         yield return new WaitForSeconds(3);
         Notify(1);
-        cellWord.GetComponent<IMoveToTarget>().MoveToTarget(0.5f, cellWord.transform.position, new Vector3(0, 0, 0));
-        cellWord.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        flag.GetComponent<IMoveToTarget>().MoveToTarget(0.5f, flag.transform.position, startPst);
+        CellWordManager.Instance.FadeinCellWord();
     }
 }

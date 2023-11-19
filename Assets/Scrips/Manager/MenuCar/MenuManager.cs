@@ -65,5 +65,6 @@ public class MenuManager : Singleton<MenuManager>
         yield return new WaitForSeconds(2f);
         StorageTypeCarManager.Instance.GetListCar();
         SceneManager.LoadScene("PlayGame");
+        MusicManager.Instance.StopMusic();
     }
 }

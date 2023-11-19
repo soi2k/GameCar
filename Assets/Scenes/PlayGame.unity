@@ -132,8 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5230000}
-  - component: {fileID: 5229999}
-  - component: {fileID: 5229998}
+  - component: {fileID: 5230002}
+  - component: {fileID: 5230001}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -141,7 +141,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &5229998
+--- !u!4 &5230000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229997}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2124795, y: -0.27842018, z: 5.9159746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5230001
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +252,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5229999
+--- !u!114 &5230002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,22 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aca7ebff5d0c5e43ab4597e24407f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
---- !u!4 &5230000
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229997}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2124795, y: -0.27842018, z: 5.9159746}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &29289232
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +976,7 @@ GameObject:
   - component: {fileID: 698479545}
   - component: {fileID: 698479546}
   - component: {fileID: 698479547}
+  - component: {fileID: 698479548}
   m_Layer: 0
   m_Name: AutoCarManager2
   m_TagString: Untagged
@@ -1060,6 +1060,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4554649030c56343b5b58a1f2df7858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &698479548
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698479541}
+  m_Enabled: 1
+  m_SortingLayerID: 1207168289
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &729660282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1253,7 @@ GameObject:
   - component: {fileID: 768244975}
   - component: {fileID: 768244974}
   - component: {fileID: 768244976}
+  - component: {fileID: 768244977}
   m_Layer: 0
   m_Name: CellWord
   m_TagString: CellWord
@@ -1349,6 +1362,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4554649030c56343b5b58a1f2df7858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &768244977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768244971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4446227d4d33f24696c39d2b4aa333d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &823940007
@@ -1711,6 +1736,7 @@ GameObject:
   - component: {fileID: 1318965478}
   - component: {fileID: 1318965479}
   - component: {fileID: 1318965480}
+  - component: {fileID: 1318965481}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -1880,6 +1906,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &1318965481
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318965470}
+  m_Enabled: 1
+  m_SortingLayerID: 388024437
+  m_SortingLayer: 10
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &1359186293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,6 +2526,7 @@ GameObject:
   - component: {fileID: 1806682705}
   - component: {fileID: 1806682706}
   - component: {fileID: 1806682707}
+  - component: {fileID: 1806682708}
   m_Layer: 0
   m_Name: AutoCarManager1
   m_TagString: Untagged
@@ -2571,6 +2610,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4554649030c56343b5b58a1f2df7858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &1806682708
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806682701}
+  m_Enabled: 1
+  m_SortingLayerID: 797220383
+  m_SortingLayer: 6
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &1818244359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,6 +2966,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 424236224}
     m_Modifications:
+    - target: {fileID: 3850963354175972779, guid: 487eba88d8110ee4097b41d2688ec771, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850963354175972779, guid: 487eba88d8110ee4097b41d2688ec771, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1533224263
+      objectReference: {fileID: 0}
     - target: {fileID: 5971023231391978657, guid: 487eba88d8110ee4097b41d2688ec771, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5

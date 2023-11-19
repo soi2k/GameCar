@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : Singleton<MusicManager>
 {
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();

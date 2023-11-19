@@ -15,4 +15,5 @@ public enum SoundType
     a,
     t,
     mat,
+    PlayGame,
 }
