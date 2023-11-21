@@ -13,10 +13,6 @@ public class AutoCar : Car
     {
         moveToTarget.MoveToTarget(moveTime, startPst, targetPst);
     }
-    public override void ChangeLane()
-    {
-        throw new System.NotImplementedException();
-    }
 
     public override void SetState(string typeCar, int animNumber, GameObject gameObject)
     {
