@@ -9,12 +9,25 @@ public class PlayerManager : Subject
     [SerializeField] private GameObject prefabguidFinger;
     private GameObject guidFinger;
     public GameObject playcar { get; private set; }
-    private Vector3 startPosition;
 
     private Car car;
     private IStartCownDown startCownDown;
+    private Vector3 startPosition; 
 
     string typeCar;
+
+    private float speedNormalBackGround = 7f;
+    private float speedTriggerBackGround = 14f;
+    private float speedAddforceBackGround = 24.5f;
+    private float stopBackGround = 0f;
+    private float delay1s = 1f;
+    private float delay1_5s = 1.5f;
+    private float delay2s = 2f;
+    private float delay2_5s = 2.5f;
+    private float delay3s = 3f;
+    private float delay4s = 4f;
+    private float soundIntro = 5f;
+    private float stateCar4 = 0.3f;
 
     private bool blChangeLane = false;
     private bool triggerAddforce = false;
@@ -48,25 +61,24 @@ public class PlayerManager : Subject
     }
 
     private IEnumerator StartGame()
-    {   
+    {
+        yield return delay1s.Wait();
         SoundManager.Instance.PlaySound(SoundType.StadiumCrowdCheering);
-        yield return new WaitForSeconds(1);
         SoundManager.Instance.PlaySound(SoundType.Intro);
-        yield return new WaitForSeconds(5);
+        yield return soundIntro.Wait();
         SoundManager.Instance.StopSound();
         SoundManager.Instance.PlaySound(SoundType.CountDown);
         startCownDown.StartCowntDown();
-        yield return new WaitForSeconds(4);
+        yield return delay3s.Wait();
         MusicManager.Instance.PlayMusic(MusicType.PlayGame);
 
-        SideRoadManager.Instance.StartGo(); 
-        yield return new WaitForSeconds(0.25f);
+        SideRoadManager.Instance.StartGo();
+        yield return delay1s.Wait();
         AutoManager1.Instance.StartPlay();
-        yield return new WaitForSeconds(0.25f);
         AutoManager2.Instance.StartPlay();
-        Notify(7f);
+        Notify(speedNormalBackGround);
         car.SetState(typeCar, 1, playcar);
-        yield return new WaitForSeconds(2.5f);
+        yield return delay2_5s.Wait();
         SoundManager.Instance.PlaySound(SoundType.Guiding);
         guidFinger = Instantiate(prefabguidFinger, new Vector3(7, -2, 0), Quaternion.identity);
         blChangeLane = true;
@@ -110,9 +122,8 @@ public class PlayerManager : Subject
         {
             SoundManager.Instance.StopSound();
             Destroy(guidFinger);
-            yield return new WaitForSeconds(0.3f);
             SoundManager.Instance.PlaySound(SoundType.NiceDriving);
-            yield return new WaitForSeconds(4);
+            yield return delay4s.Wait();
             MapManager.Instance.GenerateAlphabet();
         }
     }
@@ -136,43 +147,42 @@ public class PlayerManager : Subject
             triggerAddforce = true;
         }
     }
-    private IEnumerator Addforce()
-    {
-        blChangeLane = false;
-        SoundManager.Instance.PlaySound(SoundType.EnergyTouch);
-        yield return new WaitForSeconds(1.5f);
-        car.SetState(typeCar, 4, playcar);
-        yield return new WaitForSeconds(0.3f);
-        car.SetState(typeCar, 5, playcar);
-        SoundManager.Instance.PlaySound(SoundType.EnergyPowerUp);
-        car.Move(3, transform.position, new Vector3(4, transform.position.y, transform.position.z));
-        Notify(24.5f);
-        MapManager.Instance.EndingGame();
-    }
     
     private IEnumerator StateTrigger()
     {
         blChangeLane = false;
-        yield return new WaitForSeconds(1f);
+        yield return delay1s.Wait();
         car.SetState(typeCar, 2, playcar);
-        yield return new WaitForSeconds(0.75f);
+        yield return delay1s.Wait();
         car.Move(3, transform.position, new Vector3(0, startPosition.y, startPosition.z));
-        Notify(14f);
-        yield return new WaitForSeconds(3);
+        Notify(speedTriggerBackGround);
+        yield return delay3s.Wait();
         car.SetState(typeCar, 3, playcar);
-        yield return new WaitForSeconds(1.5f);
+        yield return delay1_5s.Wait();
         car.SetState(typeCar, 1, playcar);
         car.Move(2, transform.position, startPosition);
-        yield return new WaitForSeconds(2);
-        Notify(7f);
+        yield return delay2s.Wait();
+        Notify(speedNormalBackGround);
         blChangeLane = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return delay1_5s.Wait();
         MapManager.Instance.GenerateAlphabet();
-    }   
-
+    }
+    private IEnumerator Addforce()
+    {
+        blChangeLane = false;
+        SoundManager.Instance.PlaySound(SoundType.EnergyTouch);
+        yield return delay1s.Wait();
+        car.SetState(typeCar, 4, playcar);
+        yield return stateCar4.Wait();
+        car.SetState(typeCar, 5, playcar);
+        SoundManager.Instance.PlaySound(SoundType.EnergyPowerUp);
+        car.Move(3, transform.position, new Vector3(4, transform.position.y, transform.position.z));
+        Notify(speedAddforceBackGround);
+        MapManager.Instance.EndingGame();
+    }
     public void EndingGame()
     {
-        Notify(0);
+        Notify(stopBackGround);
         car.Move(0.5f, transform.position, new Vector3(22, transform.position.y, 0));
     }
 }

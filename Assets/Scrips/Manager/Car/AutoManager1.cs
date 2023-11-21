@@ -12,7 +12,7 @@ public class AutoManager1 : Singleton<AutoManager1>
     private Vector3 targetPst;
     private Vector3 forWardPst;
     private Vector3 backWardPst;
-    private float moveTime = 1.75f; 
+    private float moveTime = 1f; 
 
 
     private string typeCar;
