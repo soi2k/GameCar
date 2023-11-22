@@ -11,7 +11,7 @@ public class GetCarUI : BaseButton
     {
         getIDCar = GetComponent<IGetIDCar>();
         getObjectCar = GetComponent<IGetObjectCar>();
-        StorageTypeCarManager.Instance.IDCar = getIDCar.GetIDCar();
+        GameManager.Instance.IDCar = getIDCar.GetIDCar();
         MenuManager.Instance.selectedCar = getObjectCar.GetGameObject();
         MenuManager.Instance.blSelectedCar = true;
     }

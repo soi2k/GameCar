@@ -23,12 +23,12 @@ public class MapManager : Subject
     private int passCarNumbers = 0;
     private int indexListWord = 0;
 
-    private float delay0_75s = 0.75f;
-    private float delay1s = 1f;
-    private float delay1_5s = 1.5f;
-    private float delay3s = 3f;
-    private float delay4s = 4f;
-    private float delay8s = 8f;
+    private float wait0_75s = 0.75f;
+    private float wait1s = 1f;
+    private float wait1_5s = 1.5f;
+    private float wait3s = 3f;
+    private float wait4s = 4f;
+    private float wait8s = 8f;
 
     private void Awake()
     {
@@ -86,12 +86,12 @@ public class MapManager : Subject
             AutoManager2.Instance.MoveForWard();
             PlayerManager.Instance.SetActiveChangeLane(false);
         }
-        yield return delay3s.Wait();
+        yield return wait3s.Wait();
         PlayerManager.Instance.SetActiveChangeLane(true);
         alphabet.transform.SetParent(road.transform);
         if (numberMiss == 2)
         {
-            yield return delay1_5s.Wait();
+            yield return wait1_5s.Wait();
             alphabet.transform.SetParent(this.transform);
             alphabet.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         }
@@ -124,18 +124,18 @@ public class MapManager : Subject
         alphabet.GetComponent<IMoveToTarget>().MoveToTarget(0.5f, alphabet.transform.position, lstAlphabet[indexListWord].transform.position);
         SoundManager.Instance.PlaySound(SoundType.ItemTouch);
         SoundManager.Instance.PlaySound(SoundType.CrowdCheering);
-        yield return delay1s.Wait();
+        yield return wait1s.Wait();
         alphabet.GetComponent<AudioSource>().Play();
         indexListWord += 1;
 
         if (passCarNumbers == 1)
         {
-            yield return delay1s.Wait();
+            yield return wait1s.Wait();
             AutoManager1.Instance.MoveBackWard();
         }
         else if (passCarNumbers == 2)
         {
-            yield return delay1s.Wait();
+            yield return wait1s.Wait();
             AutoManager2.Instance.MoveBackWard();
         }
         
@@ -147,7 +147,7 @@ public class MapManager : Subject
     
     private IEnumerator WinGame()
     {
-        yield return delay8s.Wait();
+        yield return wait8s.Wait();
         GameObject addforce = Instantiate(preAddforce, new Vector3(19, 0, 0), Quaternion.identity);
         addforce.transform.SetParent(road.transform);
     }    
@@ -161,25 +161,25 @@ public class MapManager : Subject
     {
         if (passCarNumbers == 1)
         {
-            yield return delay1s.Wait();
+            yield return wait1s.Wait();
             AutoManager2.Instance.MoveBackWard();
         }
 
-        yield return delay4s.Wait();
+        yield return wait4s.Wait();
         GameObject line = Instantiate(preLine, new Vector3(19, 0, 0), Quaternion.identity);
         GameObject audienceHappy100 = Instantiate(lstMotionAudience[2], new Vector3(21, 0, 0), Quaternion.identity);
         line.transform.SetParent(road.transform);
         audienceHappy100.transform.SetParent(sideRoad.transform);
 
-        yield return delay0_75s.Wait();
+        yield return wait0_75s.Wait();
         PlayerManager.Instance.EndingGame();
         GameObject flag = Instantiate(preFlag);
         flag.GetComponent<IMoveToTarget>().MoveToTarget(0.5f, startPst, new Vector3(0, 3.5f, 0));
         SoundManager.Instance.PlaySound(SoundType.CrowdCheering);
-        yield return delay1s.Wait();
+        yield return wait1s.Wait();
         AutoManager1.Instance.MoveDestination();
         AutoManager2.Instance.MoveDestination();
-        yield return delay3s.Wait();
+        yield return wait3s.Wait();
         Notify(1);
         flag.GetComponent<IMoveToTarget>().MoveToTarget(0.5f, flag.transform.position, startPst);
         CellWordManager.Instance.FadeinCellWord();

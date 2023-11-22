@@ -20,12 +20,12 @@ public class AutoManager2 : Singleton<AutoManager2>
 
     private void Start()
     {
-        car = GetComponent<AutoCar>();
+        car = GetComponent<Car>();
 
         startPst = transform.position;
         targetPst = new Vector3(19, transform.position.y, transform.position.z);
 
-        typeCar = StorageTypeCarManager.Instance.lstCarAuto[1];
+        typeCar = GameManager.Instance.lstCarAuto[1];
         InitPlayCar();           
     }
     private void InitPlayCar()

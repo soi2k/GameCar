@@ -63,7 +63,7 @@ public class MenuManager : Singleton<MenuManager>
     {
         startFadein.StartFadein();
         yield return new WaitForSeconds(2f);
-        StorageTypeCarManager.Instance.GetListCar();
+        GameManager.Instance.GetListCar();
         SceneManager.LoadScene("PlayGame");
         MusicManager.Instance.StopMusic();
     }
