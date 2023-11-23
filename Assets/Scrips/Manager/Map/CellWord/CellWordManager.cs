@@ -26,7 +26,7 @@ public class CellWordManager : Singleton<CellWordManager>,IObserver
 
     public void FadeinCellWord()
     {
-        moveToTarget.MoveToTarget(0.5f, this.transform.position, new Vector3(0, 0, 0));
+        moveToTarget.MoveToTarget(0.5f, this.transform.position, new Vector3(0.47f, 0, 0));
         this.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         fadeinAlphabet.FadeinAlphabet();
     }

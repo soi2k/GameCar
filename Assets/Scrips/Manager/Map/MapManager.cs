@@ -6,9 +6,9 @@ public class MapManager : Subject
 {   
     public static MapManager Instance { get; private set; }
 
+    private List<float> lstPstYAlphabet = new List<float> { -4.4f, -2.4f, -0.4f };
     [SerializeField] private List<GameObject> lstAlphabet;
     [SerializeField] private List<GameObject> lstMotionAudience;
-    private List<float> lstPstYAlphabet = new List<float> { -4.4f, -2.4f, -0.4f };
     [SerializeField] private GameObject preAddforce;
     [SerializeField] private GameObject preLine;
     [SerializeField] private GameObject preFlag;

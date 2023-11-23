@@ -14,6 +14,7 @@ TagManager:
   - Border
   - Addforce
   - SideRoad
+  - Dialog
   layers:
   - Default
   - TransparentFX
@@ -69,7 +70,7 @@ TagManager:
   - name: Car
     uniqueID: 797220383
     locked: 0
-  - name: UI
+  - name: UIMask
     uniqueID: 4103162093
     locked: 0
   - name: CellWord
@@ -83,4 +84,13 @@ TagManager:
     locked: 0
   - name: New Layer 11
     uniqueID: 2308764959
+    locked: 0
+  - name: Menu
+    uniqueID: 207860005
+    locked: 0
+  - name: Dialog
+    uniqueID: 3580460561
+    locked: 0
+  - name: Option
+    uniqueID: 2393636401
     locked: 0

@@ -93,7 +93,7 @@ public class PlayerManager : Subject
         float positionY = this.transform.position.y;
 
         if (Mathf.Abs(positionY - newPosition.y) == 4)
-        {   
+        {                                                                                                                                                                                                                                                                          
             moveTime = 0.35f;
             car.Move(moveTime, transform.position, newPosition);
             startPosition = newPosition;
