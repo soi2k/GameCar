@@ -131,7 +131,7 @@ public class PlayerManager : Subject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Addforce")
+        if (collision.tag != "Addforce" && collision.tag != "Line")
         {
             StartCoroutine(MapManager.Instance.TriggerAlphabet());
             StartCoroutine(StateTrigger());

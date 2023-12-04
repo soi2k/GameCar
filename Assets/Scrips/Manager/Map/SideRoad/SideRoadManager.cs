@@ -20,6 +20,7 @@ public class SideRoadManager : Singleton<SideRoadManager>
     {
         referee = Instantiate(preReferee, loadPositionStartGame, Quaternion.identity);
         referee.transform.SetParent(this.transform);
+        referee.AddComponent<BoxCollider2D>();
     }
     public void StartGo()
     {

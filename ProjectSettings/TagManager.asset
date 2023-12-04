@@ -18,6 +18,7 @@ TagManager:
   - InputField
   - ListName
   - ListParent
+  - Line
   layers:
   - Default
   - TransparentFX
