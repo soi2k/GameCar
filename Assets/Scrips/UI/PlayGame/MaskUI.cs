@@ -1,17 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MaskUI : MonoBehaviour, IObserver
+public class MaskUI : Singleton<MaskUI>
 {
     private Image mask;
-    private Subject subject;
     private void Awake()
     {
         mask = GetComponent<Image>();
-        subject = FindObjectOfType<MapManager>();
-        subject.AddObserver(this);
+        
     }
-    public void OnNotify(float value)
+    public void EnableMask()
     {
         mask.enabled = true;
     }

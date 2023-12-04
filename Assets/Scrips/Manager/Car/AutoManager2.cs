@@ -7,7 +7,7 @@ public class AutoManager2 : Singleton<AutoManager2>
 
     [SerializeField] private GameObject autocarparttern;
     public GameObject autoCar { get; private set; }
-    Car car;
+    CarParttern car;
 
     private Vector3 startPst;
     private Vector3 targetPst;

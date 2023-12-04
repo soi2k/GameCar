@@ -8,7 +8,7 @@ public class ActiveCellController : MonoBehaviour, ISetActiveCell
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    public void SetActiveCell()
+    public void ActiveCell()
     {
         spriteRenderer.enabled = true;
     }

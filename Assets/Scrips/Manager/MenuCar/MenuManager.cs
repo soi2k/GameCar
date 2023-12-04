@@ -21,13 +21,17 @@ public class MenuManager : Singleton<MenuManager>
 
     void Start()
     {
-        MusicManager.Instance.PlayMusic(MusicType.WaittingSelectedCar);
         loadCar = GetComponent<ILoadCar>();
         disableButton = GetComponent<IDisableButton>();
         popupCar = GetComponent<IPopupCar>();
         scaleCar = GetComponent<IScaleCar>();
         setActiveText = GetComponent<ISetActiveText>();
         startFadein = GetComponent<IStartFadein>();
+    }
+
+    public void StartGame()
+    {
+        MusicManager.Instance.PlayMusic(MusicType.WaittingSelectedCar);
         loadCar.LoadCar();
     }
 

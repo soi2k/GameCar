@@ -24,6 +24,9 @@ public class FadeinAlphabetController : MonoBehaviour, IFadeinAlphabet
             yield return new WaitForSeconds(1f);
         }
         SoundManager.Instance.PlaySound(SoundType.mat);
+        yield return Constant.wait2s.Wait();
+        MapManager.Instance.DestroyCellWord();
+        ListNameManager.Instance.DisplayDialogName();
     }
 }
 

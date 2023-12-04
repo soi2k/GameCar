@@ -15,6 +15,9 @@ TagManager:
   - Addforce
   - SideRoad
   - Dialog
+  - InputField
+  - ListName
+  - ListParent
   layers:
   - Default
   - TransparentFX

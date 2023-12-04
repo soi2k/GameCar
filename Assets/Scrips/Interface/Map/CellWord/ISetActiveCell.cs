@@ -2,5 +2,5 @@
 
 public interface ISetActiveCell
 {
-    public void SetActiveCell();
+    public void ActiveCell();
 }

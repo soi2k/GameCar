@@ -6,7 +6,7 @@ public class TriggerBorderController : MonoBehaviour
     {
         if(collision.tag != "Addforce")
         {
-            MapManager.Instance.WordMiss();
+            StartCoroutine(MapManager.Instance.WordMiss());
         }
         else
         {

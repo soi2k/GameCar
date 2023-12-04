@@ -5,7 +5,7 @@ using UnityEngine;
 public class AutoManager1 : Singleton<AutoManager1>
 {
     [SerializeField] private GameObject autocarparttern;
-    Car car;
+    CarParttern car;
 
     public GameObject autoCar { get; private set; }
     private Vector3 startPst;

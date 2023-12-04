@@ -4,24 +4,21 @@ using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CellWordManager : Singleton<CellWordManager>,IObserver
+public class CellWordManager : Singleton<CellWordManager>
 {
-    Subject subject;
     ISetActiveCell setActiveCell;
     IMoveToTarget moveToTarget;
     IFadeinAlphabet fadeinAlphabet;
 
     private void Start()
     {
-        subject = FindObjectOfType<PlayerManager>();
         setActiveCell = GetComponent<ISetActiveCell>();
         moveToTarget = GetComponent<IMoveToTarget>();
         fadeinAlphabet = GetComponent<IFadeinAlphabet>();
-        subject.AddObserver(this);
     }
-    public void OnNotify(float value)
+    public void ActiveCellWord()
     {
-        setActiveCell.SetActiveCell();
+        setActiveCell.ActiveCell();
     }
 
     public void FadeinCellWord()
