@@ -12,14 +12,27 @@ public class SelectedCarPopup : MonoBehaviour,IPopupCar
     public void PopupCar()
     {
         carMid = MenuManager.Instance.lstCar[1];
-        if(carMid != MenuManager.Instance.selectedCar)
-        {   
-            GameObject car = MenuManager.Instance.selectedCar;
-            startPst = car.transform.position;
-            targetPst = carMid.transform.position;
+        GameObject car = MenuManager.Instance.selectedCar;
+        startPst = car.transform.position;
+        targetPst = carMid.transform.position;
+       
+        if (car != carMid)
+        {
+            carMid.SetActive(false);
+            if (car == MenuManager.Instance.lstCar[0])
+            {
+                MenuManager.Instance.lstCar[2].SetActive(false);
+            }
+            else
+            {
+                MenuManager.Instance.lstCar[0].SetActive(false);
+            }
             car.GetComponent<IMoveToTarget>().MoveToTarget(duration, startPst, targetPst);
-            carMid.GetComponent<IMoveToTarget>().MoveToTarget(duration, targetPst, startPst);
-            
+        }
+        else
+        {
+            MenuManager.Instance.lstCar[0].SetActive(false);
+            MenuManager.Instance.lstCar[2].SetActive(false);
         }
     }
 }

@@ -7,7 +7,7 @@ public abstract class BaseButton : MonoBehaviour
     [Header("Button")]
     [SerializeField] protected Button button;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         if (button != null) return;
         this.button = GetComponent<Button>();

@@ -9,7 +9,7 @@ public class SideRoadManager : Singleton<SideRoadManager>
 
     ISetAnim setAnim;
 
-    private Vector3 loadPositionStartGame = new Vector3(-4.08f,1.93f,0);
+    private Vector3 loadPositionStartGame = new(-4.08f,1.93f,0);
     private void Awake()
     {
         

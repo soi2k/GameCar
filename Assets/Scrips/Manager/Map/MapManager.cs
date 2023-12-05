@@ -17,9 +17,9 @@ public class MapManager : MonoBehaviour
     private GameObject sideRoad;
     private GameObject alphabet;
 
-    private Vector3 startPst = new Vector3(0, 0, 0);
-    private Vector3 generationPst = new Vector3(21, 0, 0);
-    private Vector3 targetFlagPst = new Vector3(0, 3.5f, 0);
+    private Vector3 startPst = new (0, 0, 0);
+    private Vector3 generationPst = new (21, 0, 0);
+    private Vector3 targetFlagPst = new (0, 3.5f, 0);
 
     private int numberMiss = 0;
     private int passCarNumbers = 0;

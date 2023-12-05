@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {   
     public static GameManager Instance { get; private set; }
-    public List<string> lstCarAuto = new List<string>
+    public List<string> lstCarAuto = new()
     {
         "PinkCar", "BlueCar", "OrangeCar"
     };
