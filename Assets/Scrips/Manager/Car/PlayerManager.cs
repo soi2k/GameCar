@@ -12,7 +12,8 @@ public class PlayerManager : Subject
 
     private CarParttern car;
     private IStartCownDown startCownDown;
-    private Vector3 startPosition; 
+    private IChangeLane changeLane;
+    public Vector3 startPosition; 
     private Vector3 guidFingerPst = new Vector3(7, -2, 0); 
 
     string typeCar;
@@ -42,6 +43,7 @@ public class PlayerManager : Subject
     {
         car = GetComponent<Car>();
         startCownDown = GetComponent<IStartCownDown>();
+        changeLane = GetComponent<IChangeLane>();
         typeCar = GameManager.Instance.IDCar;
         startPosition = transform.position;
         InitPlayCar();
@@ -82,37 +84,10 @@ public class PlayerManager : Subject
     
     public void ChangeLane(Vector3 newPosition)
     {
-        if (!blChangeLane) return;
-        float Auto1PositionY = AutoManager1.Instance.transform.position.y;
-        float Auto2PositionY = AutoManager2.Instance.transform.position.y;
-        float moveTime;
-        float positionY = this.transform.position.y;
-
-        if (Mathf.Abs(positionY - newPosition.y) == 4)
-        {                                                                                                                                                                                                                                                                          
-            moveTime = 0.35f;
-            car.Move(moveTime, transform.position, newPosition);
-            startPosition = newPosition;
-        }
-        else if (Mathf.Abs(positionY - newPosition.y) == 2)
-        {
-            StartCoroutine(FirstGuiding());
-            moveTime = 0.25f;
-            car.Move(moveTime, transform.position, newPosition);
-            startPosition = newPosition;
-        }
-        else return;
-        if(newPosition.y == Auto1PositionY)
-        {
-            AutoManager1.Instance.ChangeLane(positionY);
-        }
-        else if(newPosition.y == Auto2PositionY)
-        {
-            AutoManager2.Instance.ChangeLane(positionY);
-        }
+        changeLane.ChangeLane(newPosition);
     }
 
-    private IEnumerator FirstGuiding()
+    public IEnumerator FirstGuiding()
     {
         if (guidFinger != null)
         {
@@ -180,5 +155,9 @@ public class PlayerManager : Subject
     {
         Notify(stopBackGround);
         car.Move(0.5f, transform.position, new Vector3(22, transform.position.y, 0));
+    }
+    public bool IsChangeLane()
+    {
+        return blChangeLane;
     }
 }

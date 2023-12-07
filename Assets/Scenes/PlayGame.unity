@@ -2462,6 +2462,7 @@ GameObject:
   - component: {fileID: 1318965479}
   - component: {fileID: 1318965480}
   - component: {fileID: 1318965481}
+  - component: {fileID: 1318965482}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -2498,6 +2499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carparttern: {fileID: 6219636924153020757, guid: 011908c154595074eba71567f639fa94, type: 3}
   prefabguidFinger: {fileID: 4476259689934856177, guid: 67684fb19589fad4d992c8008baafdeb, type: 3}
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1318965474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,6 +2645,18 @@ SortingGroup:
   m_SortingLayer: 10
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &1318965482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318965470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84ce7e9341ebab439d3be6dfb720b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345922168
 GameObject:
   m_ObjectHideFlags: 0

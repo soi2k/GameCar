@@ -7,7 +7,7 @@ public class SelectedCarPopup : MonoBehaviour,IPopupCar
     private GameObject carMid;
     private Vector3 startPst;
     private Vector3 targetPst;
-    private float duration = 0.7f;
+    private float duration = 0.5f;
 
     public void PopupCar()
     {

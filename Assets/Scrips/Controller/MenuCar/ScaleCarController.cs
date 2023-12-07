@@ -7,7 +7,7 @@ public class ScaleCarController : MonoBehaviour, IScaleCar
     GameObject car;
     private Vector3 targetScale = new Vector3(1.7f, 1.7f, 1.7f);
 
-    private float scaleDuration = 0.7f;
+    private float scaleDuration = 0.5f;
     public void ScaleCar()
     {
         car = MenuManager.Instance.selectedCar;
